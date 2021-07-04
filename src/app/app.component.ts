@@ -15,18 +15,18 @@ export class AppComponent implements OnInit {
   constructor(private fb:FormBuilder){
     this.formRepositorio = fb.group(
       {
-        nombreRepositorioGithub : new FormControl()
+        nombreUsuarioGithub : new FormControl()
       }
     );
   }
 
   ngOnInit(){
-    this.formRepositorio.get("nombreRepositorioGithub")?.setValue(localStorage.getItem("nombreRepositorioGitHub"));
+    this.formRepositorio.get("nombreUsuarioGithub")?.setValue(localStorage.getItem("nombreUsuarioGithub"));
   }
 
-  cambiaRepositorioGitHub(){
-    let nombreRepositorioGithub= this.formRepositorio.get("nombreRepositorioGithub")?.value;
-    localStorage.setItem("nombreRepositorioGitHub",nombreRepositorioGithub);
+  cambiaUsuarioGitHub(){
+    let nombreUsuarioGithub= this.formRepositorio.get("nombreUsuarioGithub")?.value;
+    localStorage.setItem("nombreUsuarioGithub",nombreUsuarioGithub);
     window.location.reload();
   }
 
