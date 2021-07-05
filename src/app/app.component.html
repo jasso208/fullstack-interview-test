@@ -5,13 +5,41 @@
       <h1>TestFlat: Consulta información GitHub</h1>
     </div>
     <div class="col-xs-12 col-sm-4 form-repositorio-guthub">
+      
       <hr>
       <form [formGroup]="formRepositorio">
-        <p>Nombre usuario GitHub</p>      
-        <input class="form-control" type="text" formControlName="nombreUsuarioGithub" (change)="cambiaUsuarioGitHub()" />
+        
+        <div class="row"> 
+          <div class="col-xs-6">
+            <label>Usuario GitHub</label> 
+            <input class="form-control" type="text" formControlName="nombreUsuarioGithub" (change)="cambiaUsuarioGitHub()" />
+          </div>
+          
+          <div class="col-xs-6">
+            <label>Repositorio</label> 
+            <input class="form-control" type="text" formControlName="repositorioGithub" (change)="cambiaUsuarioGitHub()" />
+          </div>
+        </div>
+        
       </form>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <h3>Menu</h3>
+      <hr>
+      <ul class="nav flex-column">
+
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/consulta-ramas']">Ramas</a>
+        </li>       
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-10" >
+      <router-outlet></router-outlet>
+
+    </div>
+
+  </div>
 </div>
 
-<router-outlet></router-outlet>
