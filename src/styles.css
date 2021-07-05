@@ -1,12 +1,4 @@
-.modal-notificaciones{
-    position: fixed;
-    width: 90%;
-    left: 5%;
-    z-index: 1000;
-    top:20px;
-    background-color: white;    
-    text-align: center;
-}
+
 
 /*
 **********************************************************************************
@@ -49,10 +41,20 @@ Cargando*/
 Cargando*/
 
 
+.modal-notificaciones{
+  position: fixed;
+  width: 90%;
+  left: 5%;
+  z-index: 1000;
+  top:20px;
+  background-color: white;    
+  text-align: center;
+}
 
 
-
-
+.a-boton{
+  cursor:pointer
+}
 
 
 @media (min-width: 576px)  { 

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  urlApiGitHub : "https://api.github.com"
+  urlApiGitHub : "https://api.github.com",
+  per_page : 10
 };
 
 /*

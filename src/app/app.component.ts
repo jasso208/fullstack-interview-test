@@ -1,3 +1,4 @@
+import { Router } from "@angular/router";
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
@@ -12,7 +13,10 @@ export class AppComponent implements OnInit {
 
   public formRepositorio:FormGroup;
 
-  constructor(private fb:FormBuilder){
+  constructor(
+    private fb:FormBuilder,
+    private route:Router
+  ){
     this.formRepositorio = fb.group(
       {
         nombreUsuarioGithub : new FormControl(),
@@ -35,8 +39,8 @@ export class AppComponent implements OnInit {
     localStorage.setItem("nombreUsuarioGithub",nombreUsuarioGithub);
     localStorage.setItem("repositorioGithub",repositorioGithub);
 
+    this.route.navigate(['./']);
     
-    window.location.reload();
   }
 
   

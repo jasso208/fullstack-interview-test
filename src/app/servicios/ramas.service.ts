@@ -18,5 +18,12 @@ export class RamasService {
     return this.http.get(environment.urlApiGitHub + "/repos/"+ owner + "/"+repositorio + "/branches");  
   }
 
+  consultaCommits(rama:String,paginaActual:String):Observable<any>{
+    let owner = localStorage.getItem("nombreUsuarioGithub");
+    let repositorio = localStorage.getItem("repositorioGithub");
+    let per_page = environment.per_page;    
+    return this.http.get(environment.urlApiGitHub + "/repos/"+ owner + "/"+repositorio + "/commits?sha=" + rama + "&per_page=" + per_page + "&page=" + paginaActual) ;
+  }
+
 
 }

@@ -33,7 +33,7 @@ export class ConsultaRamasComponent implements OnInit {
     this.muestraCargando = true;
     this.ramasService.consultaRamas()
     .subscribe(
-      data => {
+      data => {        
         this.objRamas = data;
         this.muestraCargando = false;
       },

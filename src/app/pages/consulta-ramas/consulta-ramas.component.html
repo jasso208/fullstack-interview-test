@@ -10,7 +10,7 @@
   <tbody>
     <tr *ngFor="let r of objRamas">
       <th scope="row">
-        <a class="glyphicon glyphicon-eye-open"></a>
+        <a class="glyphicon glyphicon-eye-open a-boton" [routerLink]="['/detalle-rama', r.name]" ></a>
       </th>
       <td>{{r.name}}</td>
     </tr>    
@@ -22,7 +22,6 @@
     <h3>{{tipoNotificacion}}</h3>
     <p>{{msjNotificacion}}</p>
     <br>
-    
     <a class="btn btn-primary btn-sm" (click)="muestraNotificacion = false">
       <span class="glyphicon glyphicon-ok"></span>
       Aceptar</a>

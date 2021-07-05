@@ -1,0 +1,50 @@
+<h3 class="header-title">Commits de la rama: {{rama}}</h3>
+<hr>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Mensaje</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of commits">
+            <td></td>
+            <td>{{c.commit.message}}</td>
+            <td>{{c.commit.author.name}}</td>
+            <td>{{c.commit.author.date}}</td>
+        </tr>
+
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-xs-12 text-right">
+        <a *ngIf="mostrarBotonAtras" class="a-boton" (click)="consultaCommits(paginaAnterior)"><< Atras</a
+            >&nbsp;
+        <a *ngIf="mostrarBotonSiguiente" class="a-boton" (click)="consultaCommits(paginaSiguiente)">Siguiente >></a>
+    </div>
+  </div>
+
+
+
+  <div class="modal-notificaciones" *ngIf="muestraNotificacion">
+    <h3>{{tipoNotificacion}}</h3>
+    <p>{{msjNotificacion}}</p>
+    <br>
+    <a class="btn btn-primary btn-sm" (click)="muestraNotificacion = false">
+      <span class="glyphicon glyphicon-ok"></span>
+      Aceptar</a>
+      <br>
+      <br>
+</div>
+
+
+
+<div id="fondo_preloader"  *ngIf="muestraCargando">
+  <div class="preloader" id="preloader">
+  
+  </div>
+</div>
+  
