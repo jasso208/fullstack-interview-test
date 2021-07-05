@@ -1,7 +1,7 @@
 import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Commmit } from 'src/app/models/commit';
+import { Commit } from 'src/app/models/commit';
 import { RamasService } from 'src/app/servicios/ramas.service';
 import { environment } from 'src/environments/environment';
 
@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class DetalleRamaComponent implements OnInit {
 
   public rama:String = "";
-  public commits: Array<Commmit>;
+  public commits: Array<Commit>;
   public muestraCargando:boolean = false;
   public muestraNotificacion : boolean = false;  
   public tipoNotificacion:String = "";
@@ -21,13 +21,14 @@ export class DetalleRamaComponent implements OnInit {
   public paginaActual:number = 1;
   public paginaSiguiente:number = 2;
   public paginaAnterior:number = 0;
+
   public mostrarBotonAtras:boolean = false;
   public mostrarBotonSiguiente:boolean = true;
   constructor(
     private activatedRoute:ActivatedRoute,
     private ramasService:RamasService
   ) { 
-    this.commits = new Array<Commmit>();
+    this.commits = new Array<Commit>();
   }
 
 

@@ -1,7 +1,9 @@
-export class Commmit{
+export class Commit{
     constructor(
         public commit:DetalleCommit,
-        public parents:Array<Parents>
+        public parents:Array<Parents>,
+        public sha:String,
+        public files:Array<Files>
         ){}
     
 }
@@ -29,4 +31,13 @@ class Parents{
         public url : String
     ){}
     
+}
+
+class Files{
+    constructor(
+        public sha:String,
+        public blob_url:String
+    ){
+        
+    }
 }

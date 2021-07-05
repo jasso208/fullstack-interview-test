@@ -11,12 +11,13 @@
     </thead>
     <tbody>
         <tr *ngFor="let c of commits">
-            <td></td>
+            <td>
+              <a class="glyphicon glyphicon-eye-open a-boton" [routerLink]="['/detalle-commit', c.sha]" ></a>
+            </td>
             <td>{{c.commit.message}}</td>
             <td>{{c.commit.author.name}}</td>
             <td>{{c.commit.author.date}}</td>
         </tr>
-
     </tbody>
   </table>
   <div class="row">
