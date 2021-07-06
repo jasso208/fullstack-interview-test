@@ -14,7 +14,7 @@ export class ConsultaRamasComponent implements OnInit {
   public muestraNotificacion : boolean;
   public tipoNotificacion:String = "";
   public msjNotificacion:String = "";
-  public muestraCargando:boolean;
+  public muestraModalCargando:boolean;
 
   constructor(
     private ramasService:RamasService
@@ -22,7 +22,7 @@ export class ConsultaRamasComponent implements OnInit {
     this.repositorio = <String>localStorage.getItem("repositorioGithub");
     this.objRamas = new Array<Ramas>();
     this.muestraNotificacion = false;
-    this.muestraCargando = false;
+    this.muestraModalCargando = false;
   }
 
   ngOnInit(): void {
@@ -30,19 +30,19 @@ export class ConsultaRamasComponent implements OnInit {
   }
 
   consultaRamas(){
-    this.muestraCargando = true;
+    this.muestraModalCargando = true;
     this.ramasService.consultaRamas()
     .subscribe(
       data => {        
         this.objRamas = data;
-        this.muestraCargando = false;
+        this.muestraModalCargando = false;
       },
       error => {
 
         this.tipoNotificacion = "Error!!";
         this.msjNotificacion = "No se encontraron ramas para el repositorio "+localStorage.getItem("repositorioGithub")+" del usuario "+localStorage.getItem("nombreUsuarioGithub")+", valide que el repositorio no sea privado.";
         this.muestraNotificacion = true;
-        this.muestraCargando = false;
+        this.muestraModalCargando = false;
         //console.log(error);
       }
 
