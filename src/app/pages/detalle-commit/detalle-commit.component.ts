@@ -12,7 +12,7 @@ export class DetalleCommitComponent implements OnInit {
   
   public sha:String="";
   public commit:Commit;
-  public muestraCargando:boolean = false;
+  public muestraModalCargando:boolean = false;
   public muestraNotificacion : boolean = false;  
   public tipoNotificacion:String = "";
   public msjNotificacion:String = "";
@@ -44,7 +44,7 @@ export class DetalleCommitComponent implements OnInit {
         this.tipoNotificacion = "Error!!";
         this.msjNotificacion = "Error al cargar la información.";
         this.muestraNotificacion = true;
-        this.muestraCargando = false; 
+        this.muestraModalCargando = false; 
       }
     );
   }
