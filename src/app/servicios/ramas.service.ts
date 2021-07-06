@@ -8,12 +8,16 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class RamasService {
-  private owner:String = <String>localStorage.getItem("nombreUsuarioGithub");
-  private repositorio:String = <String>localStorage.getItem("repositorioGithub");
+  private owner:String;
+  private repositorio:String;
 
   constructor(
     private http:HttpClient
-  ) { }
+  ) { 
+
+    this.owner = <String>localStorage.getItem("nombreUsuarioGithub");
+    this.repositorio = <String>localStorage.getItem("repositorioGithub");
+  }
 
   consultaRamas():Observable<any>{
     return this.http.get(environment.urlApiGitHub + "/repos/"+ this.owner + "/"+this.repositorio + "/branches");  

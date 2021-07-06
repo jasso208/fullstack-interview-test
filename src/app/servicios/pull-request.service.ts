@@ -9,12 +9,15 @@ import { environment } from 'src/environments/environment';
 })
 export class PullRequestService {
 
-  private owner:String = <String>localStorage.getItem("nombreUsuarioGithub");
-  private repositorio:String = <String>localStorage.getItem("repositorioGithub");
-  
+  private owner:String;
+  private repositorio:String;
+
   constructor(
     private http:HttpClient
-  ) { }
+  ) {
+    this.owner = <String>localStorage.getItem("nombreUsuarioGithub");
+    this.repositorio = <String>localStorage.getItem("repositorioGithub");
+   }
   
   crearPullRequest(form:FormGroup):Observable<any>{    
     return this.http.post(environment.urlApiGitHub + "/repos/"+ this.owner + "/"+this.repositorio + "/pulls",form.value);
