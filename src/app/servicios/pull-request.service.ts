@@ -11,6 +11,7 @@ export class PullRequestService {
 
   private owner:String = <String>localStorage.getItem("nombreUsuarioGithub");
   private repositorio:String = <String>localStorage.getItem("repositorioGithub");
+  
   constructor(
     private http:HttpClient
   ) { }

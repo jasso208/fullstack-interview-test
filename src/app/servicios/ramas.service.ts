@@ -8,21 +8,21 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class RamasService {
+  private owner:String = <String>localStorage.getItem("nombreUsuarioGithub");
+  private repositorio:String = <String>localStorage.getItem("repositorioGithub");
+
   constructor(
     private http:HttpClient
   ) { }
 
   consultaRamas():Observable<any>{
-    let owner = localStorage.getItem("nombreUsuarioGithub");
-    let repositorio = localStorage.getItem("repositorioGithub");
-    return this.http.get(environment.urlApiGitHub + "/repos/"+ owner + "/"+repositorio + "/branches");  
+    return this.http.get(environment.urlApiGitHub + "/repos/"+ this.owner + "/"+this.repositorio + "/branches");  
   }
 
   consultaCommits(rama:String,paginaActual:String):Observable<any>{
-    let owner = localStorage.getItem("nombreUsuarioGithub");
-    let repositorio = localStorage.getItem("repositorioGithub");
+    
     let per_page = environment.per_page;    
-    return this.http.get(environment.urlApiGitHub + "/repos/"+ owner + "/"+repositorio + "/commits?sha=" + rama + "&per_page=" + per_page + "&page=" + paginaActual) ;
+    return this.http.get(environment.urlApiGitHub + "/repos/"+ this.owner + "/"+this.repositorio + "/commits?sha=" + rama + "&per_page=" + per_page + "&page=" + paginaActual) ;
   }
 
 
