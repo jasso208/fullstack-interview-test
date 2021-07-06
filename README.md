@@ -1,27 +1,31 @@
 # FullstackInterviewTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+Este proyecto fue creado con Angular CLI https://github.com/angular/angular-cli version 12.1.1.
 
-## Development server
+## Servidor de desarrollo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Ejecuta `ng serve` para tener acceso al servidor local de desarrollo. Navega en `http://localhost:4200/`. 
 
-## Code scaffolding
+## Podemos ver la demostracion del proyecto en la siguiente url.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+http://jasso208.pythonanywhere.com/
 
-## Build
+## ¿Como funciona?
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Este test fue creado para consultar la informacion de las ramas, commits y pull request del repositorio "fullstack-interview-test" del usuario "jasso208". Una vez que estemos ya en la pagina, en el formulario que aparece en el encabezado debemos ingresar la información del repositorio que deseamos consultar.
 
-## Running unit tests
+    usuario github: jasso208
+    repositorio: fullstack-interview-test
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Una vez ingresado estos valores podemos empezar a consultar la informacion navegando con el menu que se encuentra en el lado izquierdo.
 
-## Running end-to-end tests
+## Consultar otros repositorios
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Para consultar un repositorio diferente al anteriormente mencionado solo cambiamos los valores usuario github y repositorio. 
 
-## Further help
+## Crear Pull Request de otros repositorios
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Como Github require autenticarse para poder modificar el repositorio, debemos seguir los pasos mencionados en aqui (https://docs.github.com/es/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) para generar un token. Una vez que contamos con el token abrimos el archivo environment.ts de nuestro proyecto y cambiamos los valores de "usuarioGitHub" y "password" por los valores del nuevo repositorio.
+
+
+
