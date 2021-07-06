@@ -17,7 +17,7 @@ export class AuthApiService  implements HttpInterceptor {
       {
         headers : new HttpHeaders(
           {
-            "Authorization": "Basic amFzc28yMDg6Z2hwX2RFd1RKMk14d3NYT2prYTNIZGg4S0doVmJJS3lueDM3ZVpSaw==" 
+            "Authorization": "Basic amFzc28yMDg6Z2hwX2RFd1RKMk14d3NYT2prYTNIZGg4S0doVmJJS3lueDM3ZVpSaw=="
           }
         )
       }      

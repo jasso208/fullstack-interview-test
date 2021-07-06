@@ -32,6 +32,7 @@ export class ConsultaPullsRequestComponent implements OnInit {
 
         this.listaPullRequest = data;
         this.muestraCargando = false;
+        
 
       },
       error =>{
@@ -50,6 +51,9 @@ export class ConsultaPullsRequestComponent implements OnInit {
       data =>{
        this.consultaPullsRequest();
         this.muestraCargando = false;
+        this.tipoNotificacion = "Aviso!!";
+        this.msjNotificacion = "El Pull Request se actualizo correctamente.";
+        this.muestraNotificacion = true;
       },
       error =>{
         this.tipoNotificacion = "Error!!";

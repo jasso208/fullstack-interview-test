@@ -1,0 +1,79 @@
+<h3 class="header-title">Crear Pull Request</h3>
+<hr>
+<form [formGroup]="formCreatePullRequest">
+    <div class="row">
+        <div class="col-xs-4">
+            <label>* Rama base:</label>
+            <select class="form-control" formControlName="base">
+                <option value="">
+                    Selecciona una rama
+                </option>   
+                             
+                <option *ngFor="let r of objRamas" value="{{r.name}}">
+                    {{r.name}}
+                </option>             
+            </select>
+        </div>
+        <div class="col-xs-4">
+            <label>* Rama compare:</label>
+            <select class="form-control" formControlName="head">
+                <option value="">
+                    Selecciona una rama
+                </option>                
+                <option *ngFor="let r of objRamas" value="{{r.name}}">
+                    {{r.name}}
+                </option>
+            </select>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <label>* Titulo:</label>
+            <input type="text" class="form-control" formControlName="title">
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col-xs-12">
+            <label>* Comentario:</label>
+            <textarea  class="form-control" formControlName="body"></textarea>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <br>
+          <button class="btn btn-primary btn-sm" (click)="crearPullRequest()">
+              
+              <span class="glyphicon glyphicon-plus"></span>
+              Crear pull request
+          </button>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+
+<div class="modal-notificaciones" *ngIf="muestraNotificacion">
+    <h3>{{tipoNotificacion}}</h3>
+    <p>{{msjNotificacion}}</p>
+    <br>
+    <a class="btn btn-primary btn-sm" (click)="muestraNotificacion = false">
+      <span class="glyphicon glyphicon-ok"></span>
+      Aceptar</a>
+      <br>
+      <br>
+</div>
+
+
+
+<div id="fondo_preloader"  *ngIf="muestraCargando">
+  <div class="preloader" id="preloader">
+  
+  </div>
+</div>

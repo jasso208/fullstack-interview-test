@@ -9,6 +9,7 @@ import { DetalleRamaComponent } from './pages/detalle-rama/detalle-rama.componen
 import { DetalleCommitComponent } from './pages/detalle-commit/detalle-commit.component';
 import { ConsultaPullsRequestComponent } from './pages/consulta-pulls-request/consulta-pulls-request.component';
 import { AuthApiService } from './interceptors/auth-api.service';
+import { CrearPullRequestComponent } from './pages/crear-pull-request/crear-pull-request.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { AuthApiService } from './interceptors/auth-api.service';
     DetalleRamaComponent,
     DetalleCommitComponent,
     ConsultaPullsRequestComponent,
+    CrearPullRequestComponent,
     
   ],
   imports: [

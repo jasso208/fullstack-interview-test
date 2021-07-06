@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {  FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -11,6 +12,13 @@ export class PullRequestService {
   constructor(
     private http:HttpClient
   ) { }
+  
+  crearPullRequest(form:FormGroup):Observable<any>{    
+    let owner = localStorage.getItem("nombreUsuarioGithub");
+    let repositorio = localStorage.getItem("repositorioGithub");    
+    return this.http.post(environment.urlApiGitHub + "/repos/"+ owner + "/"+repositorio + "/pulls",form.value);
+
+  }
 
   consultaPullsRequest():Observable<any>{
     let owner = localStorage.getItem("nombreUsuarioGithub");
@@ -21,7 +29,7 @@ export class PullRequestService {
   actualizaPullRequest(idPullRequest:String):Observable<any>{    
     let owner = localStorage.getItem("nombreUsuarioGithub");
     let repositorio = localStorage.getItem("repositorioGithub");
-    console.log(environment.urlApiGitHub + "/repos/"+ owner + "/"+repositorio + "/pulls/" + idPullRequest);
+    
     return this.http.patch(environment.urlApiGitHub + "/repos/"+ owner + "/"+repositorio + "/pulls/" + idPullRequest,{"state":"closed"});
   }
 }
