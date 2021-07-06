@@ -8,12 +8,15 @@ import { environment } from 'src/environments/environment';
 })
 export class CommitService {
 
-  private owner:String = <String>localStorage.getItem("nombreUsuarioGithub");
-  private repositorio:String = <String>localStorage.getItem("repositorioGithub");
+  private owner:String;
+  private repositorio:String;
 
   constructor(
     private http:HttpClient
-  ) { }
+  ) {
+    this.owner = <String>localStorage.getItem("nombreUsuarioGithub");
+    this.repositorio = <String>localStorage.getItem("repositorioGithub");
+   }
 
   consultaDetalleCommit(sha:String):Observable<any>{
  
