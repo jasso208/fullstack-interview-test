@@ -76,24 +76,16 @@ export class DetalleRamaComponent implements OnInit {
 
     this.paginaSiguiente = this.paginaActual + 1;
     
-    //validamos si es la ultima pagina
-    try{
 
-      let ultimoCommitDePagina = environment.per_page  - 1;
-
-      if (this.commits[ultimoCommitDePagina].parents.length >= 1){
-        this.mostrarBotonSiguiente = true;
-      }
-      else{
-        this.mostrarBotonSiguiente = false;
-      }
-      
-      
-    }
-    catch(error){
-      //console.log(error);
+    if (this.commits.length == 0){
       this.mostrarBotonSiguiente = false;
     }
+    else{
+      this.mostrarBotonSiguiente = true;
+    }
+
+
+
     
     
   }

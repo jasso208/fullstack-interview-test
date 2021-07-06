@@ -20,10 +20,11 @@ export class PullRequestService {
 
   }
 
-  consultaPullsRequest():Observable<any>{
+  consultaPullsRequest(paginaActual:String):Observable<any>{
     let owner = localStorage.getItem("nombreUsuarioGithub");
     let repositorio = localStorage.getItem("repositorioGithub");
-    return this.http.get(environment.urlApiGitHub + "/repos/"+ owner + "/"+repositorio + "/pulls?state=all");
+    let per_page = environment.per_page;    
+    return this.http.get(environment.urlApiGitHub + "/repos/"+ owner + "/"+repositorio + "/pulls?state=all" + "&per_page=" + per_page + "&page=" + paginaActual);
   }
 
   actualizaPullRequest(idPullRequest:String):Observable<any>{    

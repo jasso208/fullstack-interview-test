@@ -1,3 +1,5 @@
+import { Parents } from "./parents";
+
 export class Commit{
     constructor(
         public commit:DetalleCommit,
@@ -24,14 +26,7 @@ class Autor{
     ){}
 }
 
-class Parents{
-    constructor(
-        public html_url : String,
-        public sha : String,
-        public url : String
-    ){}
-    
-}
+
 
 class Files{
     constructor(

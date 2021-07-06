@@ -1,3 +1,5 @@
+import { Parents } from "./parents";
+
 export class PullRequest{
 
     constructor(
@@ -6,7 +8,8 @@ export class PullRequest{
         public user:User,
         public body:String,
         public title:String,
-        public state:String
+        public state:String,        
+        public parents:Array<Parents>,
     ){
 
     }
