@@ -4,15 +4,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConsultaRamasComponent } from './pages/consulta-ramas/consulta-ramas.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DetalleRamaComponent } from './pages/detalle-rama/detalle-rama.component';
 import { DetalleCommitComponent } from './pages/detalle-commit/detalle-commit.component';
+import { ConsultaPullsRequestComponent } from './pages/consulta-pulls-request/consulta-pulls-request.component';
+import { AuthApiService } from './interceptors/auth-api.service';
 @NgModule({
   declarations: [
     AppComponent,
     ConsultaRamasComponent,
     DetalleRamaComponent,
     DetalleCommitComponent,
+    ConsultaPullsRequestComponent,
     
   ],
   imports: [
@@ -21,7 +24,9 @@ import { DetalleCommitComponent } from './pages/detalle-commit/detalle-commit.co
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS,useClass:AuthApiService,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

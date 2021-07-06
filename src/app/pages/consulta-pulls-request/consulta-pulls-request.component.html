@@ -1,0 +1,49 @@
+<h3 class="header-title">Listado de Pulls Request</h3>
+<hr>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Autor</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Estatus</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of listaPullRequest">
+            <td>
+                <a *ngIf="p.state == 'open'" class="btn btn-primary btn-sm" (click)="actualizaPullRequest(p.number)">
+                    <span class="glyphicon glyphicon-remove-circle"></span>
+                    cerrar
+                </a>
+            </td>            
+            <td>{{p.user.login}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.body}}</td>
+            <td>{{p.state}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<div class="modal-notificaciones" *ngIf="muestraNotificacion">
+    <h3>{{tipoNotificacion}}</h3>
+    <p>{{msjNotificacion}}</p>
+    <br>
+    <a class="btn btn-primary btn-sm" (click)="muestraNotificacion = false">
+      <span class="glyphicon glyphicon-ok"></span>
+      Aceptar</a>
+      <br>
+      <br>
+</div>
+
+
+
+<div id="fondo_preloader"  *ngIf="muestraCargando">
+  <div class="preloader" id="preloader">
+  
+  </div>
+</div>
