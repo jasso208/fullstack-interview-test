@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthApiService  implements HttpInterceptor {
 
+  private token:String = "amFzc28yMDg6Z2hwX2RFd1RKMk14d3NYT2prYTNIZGg4S0doVmJJS3lueDM3ZVpSaw==";
+
   constructor() { }
 
   intercept(req:HttpRequest<any>,next:HttpHandler):Observable<HttpEvent<any>>{
@@ -17,7 +19,7 @@ export class AuthApiService  implements HttpInterceptor {
       {
         headers : new HttpHeaders(
           {
-            "Authorization": "Basic amFzc28yMDg6Z2hwX2RFd1RKMk14d3NYT2prYTNIZGg4S0doVmJJS3lueDM3ZVpSaw=="
+            "Authorization": "Basic " + this.token
           }
         )
       }      
