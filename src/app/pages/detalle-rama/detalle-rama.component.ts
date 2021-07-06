@@ -14,7 +14,7 @@ export class DetalleRamaComponent implements OnInit {
 
   public rama:String = "";
   public commits: Array<Commit>;
-  public muestraCargando:boolean = false;
+  public muestraModalCargando:boolean = false;
   public muestraNotificacion : boolean = false;  
   public tipoNotificacion:String = "";
   public msjNotificacion:String = "";
@@ -41,14 +41,14 @@ export class DetalleRamaComponent implements OnInit {
 
     this.paginaActual = pagina;
 
-    this.muestraCargando = true;
+    this.muestraModalCargando = true;
     this.ramasService.consultaCommits(this.rama,this.paginaActual.toString())
     .subscribe(
       data=>{
         console.log(data);
         this.commits = data;    
         this.calculaPaginaSiguienteyAnterior();
-        this.muestraCargando = false;    
+        this.muestraModalCargando = false;    
 
       },
       error =>{
@@ -56,7 +56,7 @@ export class DetalleRamaComponent implements OnInit {
         this.tipoNotificacion = "Error!!";
         this.msjNotificacion = "Error al cargar el listado de commits de la rama " + this.rama + ".";
         this.muestraNotificacion = true;
-        this.muestraCargando = false; 
+        this.muestraModalCargando = false; 
 
       }
     );
