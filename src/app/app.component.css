@@ -1,0 +1,30 @@
+
+    .encabezado{
+        background-color: black;
+        color:white;
+        padding-bottom: 10px;
+    }
+  
+
+@media (min-width: 576px)  { 
+
+ }
+
+
+@media (min-width: 768px) { /*ipad*/
+
+    .encabezado h1{
+        margin-top: 30px;
+    }
+
+
+ }
+
+
+@media (min-width: 992px)  { 
+    .encabezado h1{
+        margin-top: 70px;
+    }
+ }
+
+

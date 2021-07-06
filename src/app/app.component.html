@@ -1,0 +1,50 @@
+
+<div class="container">
+  <div class="row encabezado">
+    <div class="col-xs-12 col-sm-8">
+      <h1>TestFlat: Consulta información GitHub</h1>
+    </div>
+    <div class="col-xs-12 col-sm-4 form-repositorio-guthub">
+      
+      <hr>
+      <form [formGroup]="formRepositorio">
+        
+        <div class="row"> 
+          <div class="col-xs-6">
+            <label>Usuario GitHub</label> 
+            <input class="form-control" type="text" formControlName="nombreUsuarioGithub" (change)="cambiaUsuarioGitHub()" />
+          </div>
+          
+          <div class="col-xs-6">
+            <label>Repositorio</label> 
+            <input class="form-control" type="text" formControlName="repositorioGithub" (change)="cambiaUsuarioGitHub()" />
+          </div>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <h3>Menu</h3>
+      <hr>
+      <ul class="nav flex-column">
+
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/consulta-ramas']">Ramas</a>
+        </li>       
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/consulta-pulls-request']">Pulls request</a>
+        </li>       
+
+        
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-10" >
+      <router-outlet></router-outlet>
+
+    </div>
+
+  </div>
+</div>
+

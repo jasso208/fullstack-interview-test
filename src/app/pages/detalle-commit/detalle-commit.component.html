@@ -1,0 +1,78 @@
+
+  <h3>Detalle del commit: {{sha}}</h3>
+  <hr>
+  <div *ngIf="commit != undefined">  
+
+  <div class="row">
+      <div class="col-xs-2">
+          <label>Fecha: </label>
+      </div>
+      <div class="col-xs-10">
+          {{commit.commit.author.date}}
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-2">
+        <label>Comentario: </label>
+    </div>
+    <div class="col-xs-10">
+        {{commit.commit.message}}
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-2">
+        <label>{{numArchivosModificados}} Archivo(s) modificado(s): </label>
+    </div>
+    <div class="col-xs-10">
+        <div class="row">
+          <div class="col-xs-12" *ngFor="let f of commit.files">
+            * <a href="{{f.blob_url}}" target="_blanck">
+              {{f.blob_url}}
+            </a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-2">
+        <label>Autor: </label>
+    </div>
+    <div class="col-xs-4">
+        {{commit.commit.author.name}}
+    </div>
+    <div class="col-xs-2">
+      <label>E-mail: </label>
+  </div>
+  <div class="col-xs-4">
+    {{commit.commit.author.email}}
+  </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="modal-notificaciones" *ngIf="muestraNotificacion">
+    <h3>{{tipoNotificacion}}</h3>
+    <p>{{msjNotificacion}}</p>
+    <br>
+    <a class="btn btn-primary btn-sm" (click)="muestraNotificacion = false">
+      <span class="glyphicon glyphicon-ok"></span>
+      Aceptar</a>
+      <br>
+      <br>
+</div>
+
+
+
+<div id="fondo_preloader"  *ngIf="muestraModalCargando">
+  <div class="preloader" id="preloader">
+  
+  </div>
+</div>
+  
