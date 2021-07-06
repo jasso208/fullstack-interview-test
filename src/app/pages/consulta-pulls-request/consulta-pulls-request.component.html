@@ -14,7 +14,7 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col"></th>
+        <th scope="col"></th>        
         <th scope="col">Autor</th>
         <th scope="col">Titulo</th>
         <th scope="col">Descripción</th>
@@ -28,7 +28,13 @@
                     <span class="glyphicon glyphicon-remove-circle"></span>
                     cerrar
                 </a>
-            </td>            
+            </td>      
+            <td>
+              <a *ngIf="p.state == 'open'" class="btn btn-primary btn-sm" (click)="mergePullRequest(p.number)">
+                  <span class="glyphicon glyphicon-ok-circle"></span>
+                  merge
+              </a>
+          </td>            
             <td>{{p.user.login}}</td>
             <td>{{p.title}}</td>
             <td>{{p.body}}</td>

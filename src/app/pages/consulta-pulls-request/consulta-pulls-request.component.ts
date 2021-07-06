@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { PullRequest } from 'src/app/models/pull-request';
 import { PullRequestService } from 'src/app/servicios/pull-request.service';
@@ -23,6 +24,8 @@ export class ConsultaPullsRequestComponent implements OnInit {
 
   public mostrarBotonAtras:boolean = false;
   public mostrarBotonSiguiente:boolean = true;
+
+  public objError:HttpErrorResponse;
 
   constructor(
     private prService:PullRequestService
@@ -71,6 +74,36 @@ export class ConsultaPullsRequestComponent implements OnInit {
         this.msjNotificacion = "Error al actualizar la información.";
         this.muestraNotificacion = true;
         this.muestraModalCargando = false;
+      }
+    );
+  }
+
+  mergePullRequest(id:number){
+    this.muestraModalCargando = true;
+
+    this.prService.mergePullRequest(id.toString())
+    .subscribe(
+      data =>{
+        console.log(data);
+        this.consultaPullsRequest(this.paginaActual);
+        this.muestraModalCargando = false;
+        this.tipoNotificacion = "Aviso!!";
+        this.msjNotificacion = "El merge se realizo correctamente.";
+        this.muestraNotificacion = true;
+      },
+      error =>{
+        console.log(error);
+        this.objError = error;          
+          this.tipoNotificacion = "Error!!";
+          this.msjNotificacion = "Error al hacer el merge. ";
+          try{
+            for (let e of this.objError.error.errors){
+              this.msjNotificacion = this.msjNotificacion + e.message + ". "
+            }
+          }
+          catch(e){}
+          this.muestraNotificacion = true;
+          this.muestraModalCargando = false;
       }
     );
   }
