@@ -16,7 +16,7 @@ export class CrearPullRequestComponent implements OnInit {
   public muestraNotificacion : boolean;
   public tipoNotificacion:String = "";
   public msjNotificacion:String = "";
-  public muestraCargando:boolean;
+  public muestraModalCargando:boolean;
   public formCreatePullRequest:FormGroup;
 
   public objError:HttpErrorResponse;
@@ -43,12 +43,12 @@ export class CrearPullRequestComponent implements OnInit {
   crearPullRequest(){
     if(this.formCreatePullRequest.valid){
 
-      this.muestraCargando = true;
+      this.muestraModalCargando = true;
       this.prService.crearPullRequest(this.formCreatePullRequest)
       .subscribe(
         data=>{
           this.router.navigate(['../consulta-pulls-request']);    
-          this.muestraCargando = false;
+          this.muestraModalCargando = false;
         },
         error=>{
           this.objError = error;          
@@ -61,7 +61,7 @@ export class CrearPullRequestComponent implements OnInit {
           }
           catch(e){}
           this.muestraNotificacion = true;
-          this.muestraCargando = false;
+          this.muestraModalCargando = false;
 
         }
       );
@@ -75,19 +75,19 @@ export class CrearPullRequestComponent implements OnInit {
   }
 
   consultaRamas(){
-    this.muestraCargando = true;
+    this.muestraModalCargando = true;
     this.ramasService.consultaRamas()
     .subscribe(
       data => {        
         this.objRamas = data;
-        this.muestraCargando = false;
+        this.muestraModalCargando = false;
       },
       error => {
 
         this.tipoNotificacion = "Error!!";
         this.msjNotificacion = "No se encontraron ramas para el repositorio "+localStorage.getItem("repositorioGithub")+" del usuario "+localStorage.getItem("nombreUsuarioGithub")+", valide que el repositorio no sea privado.";
         this.muestraNotificacion = true;
-        this.muestraCargando = false;
+        this.muestraModalCargando = false;
         //console.log(error);
       }
 
